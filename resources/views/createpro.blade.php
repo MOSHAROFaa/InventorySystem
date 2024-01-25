@@ -56,20 +56,13 @@
         const formElement = document.getElementById('productForm');
 
         try {
-            // const response = await fetch(apiUrl, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'X-CSRF-TOKEN': '{{ csrf_token() }}',  // Replace with the actual CSRF token
-            //     },
-            //     body: new FormData(this),
-            // });
+            
 
             const formData = new FormData(formElement);
             const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
-                // 'Content-Type': 'application/json',
+                
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
             },
             body: formData,  // Pass the form element to FormData

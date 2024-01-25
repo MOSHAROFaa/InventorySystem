@@ -51,27 +51,7 @@ section {
   border-radius: 5px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
 
-}
-
-td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-
-}
-
-th {
-  border: 1px solid #ddd;
-  background-color: #4285f4;
-  color: rgb(255, 255, 255);
-}
 
 button {
   background-color: #4285f4;

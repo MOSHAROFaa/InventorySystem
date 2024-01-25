@@ -72,63 +72,6 @@
                             <hr>
                         </header>
 
-                        <!-- <section>
-                            <h2>Product Inventory Table</h2>
-                            <table id="inventoryTable">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>SKU</th>
-                                        <th>Quantity</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Created At</th>
-                                        <th>Updated At</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </section>
-
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                fetch('http://127.0.0.1:8000/api/products') 
-                                    .then(response => {
-                                        if (!response.ok) {
-                                            throw new Error(`HTTP error! Status: ${response.status}`);
-                                        }
-                                        return response.json();
-                                    })
-                                    .then(responseData => {
-                                        console.log(responseData); 
-
-                                        if (responseData.status === 200) {
-                                            const products = responseData.message;
-                                            const tableBody = document.querySelector('#inventoryTable tbody');
-
-                                            products.forEach(product => {
-                                                const row = document.createElement('tr');
-                                                row.innerHTML = `
-                                                <td>${product.id}</td>
-                                                <td>${product.sku}</td>
-                                                <td>${product.quantity}</td>
-                                                <td>${product.title}</td>
-                                                <td>${product.description}</td>
-                                                <td>${product.created_at}</td>
-                                                <td>${product.updated_at}</td>
-                                                    `;
-
-                                                tableBody.appendChild(row);
-                                            });
-                                        } else {
-                                            console.error('Error fetching inventory:', responseData.message);
-                                        }
-                                    })
-                                    .catch(error => console.error('Error fetching inventory:', error));
-                            });
-                        </script> -->
                     </body>
 
                     </html>
