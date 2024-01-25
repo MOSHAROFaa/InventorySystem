@@ -1,0 +1,110 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111e36;
+  color: #ffffff;
+}
+
+hr{
+  width: 95%;
+}
+
+#headingfir {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #ffffff;
+  background-color: rgb(77, 77, 77);
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  margin-right: 10px;
+}
+
+header {
+  padding: 10px 0;
+  text-align: center; 
+}
+
+button {
+  background-color: #4285f4;
+  /* Green */
+  border: 5px;
+  border-radius: 2px;
+  color: #ffffff;
+  padding: 8px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+nav {
+  text-align: center;
+  background-color: #111e36;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#out{
+  background-color: red;
+}
+
+section {
+  width: 100%;
+  margin: 1em auto;
+  padding: 2em;
+  background-color: #111e36;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+table {
+  width: 96%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  background-color: #111e36;
+
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+
+}
+
+th {
+  border: 1px solid #ddd;
+  background-color: #4285f4;
+  color: #ffffff;
+}
+
+
+
+#logged {
+  float: left;
+  margin-top: 15px;
+  margin-left: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.w-5 {
+  display: none;
+}
