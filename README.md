@@ -35,3 +35,10 @@ Application Useage:
 
 
 4. Please import the DB it is located in the database folder.
+5. Unit testing is done here all 34 cases successfully passed.
+   
+![1](https://github.com/MOSHAROFaa/InventorySystem/assets/84110930/a6411476-76e3-4d17-a3c3-6d3e617ddea9)
+
+
+![2](https://github.com/MOSHAROFaa/InventorySystem/assets/84110930/faa03c36-fd82-4a44-975c-e120ec6ffe54)
+
