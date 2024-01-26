@@ -23,12 +23,12 @@ Application Useage:
 
 3. Then in the terminal run these commands,
 
--> To start the server
-php artisan serve
+  3.1 To start the server
+      php artisan serve
 
--> To run the npm dev and authentication system,
-npm run dev
+  3.2 To run the npm dev and authentication system,
+      npm run dev
 
-if there is an issue in terminal write these two command.
-php artisan route:clear
-php artisan route:clear
+  3.3 Ff there is an issue in terminal write these two command.
+      php artisan route:clear
+      php artisan route:clear
