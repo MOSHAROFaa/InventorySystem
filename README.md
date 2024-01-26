@@ -13,7 +13,7 @@ Route::put('products/update/{id}', [ProductController::class, 'update']);
 Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
 
-Application Useage:
+
 1. Please start your local host. You can choose XAMPP. Start the Apache and MySQL. (Important: Check the MySQL Port.)
 2. Go to the .env file then check and change the followings, 
 
