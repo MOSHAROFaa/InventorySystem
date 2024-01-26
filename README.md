@@ -32,3 +32,6 @@ Application Useage:
   3.3 Ff there is an issue in terminal write these two command.
       php artisan route:clear
       php artisan route:clear
+
+
+4. Please import the DB it is located in the database folder.
