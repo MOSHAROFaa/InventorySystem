@@ -1,10 +1,15 @@
-REST APIs
 
-Routes for Products - API endpoints
+
+Routes for Products - REST API
+
 Route::get('products', [ProductController::class, 'index']);
+
 Route::get('products/{id}', [ProductController::class, 'show']);
+
 Route::post('products', [ProductController::class, 'store']);
+
 Route::put('products/update/{id}', [ProductController::class, 'update']);
+
 Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
 
