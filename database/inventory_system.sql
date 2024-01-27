@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Jan 25, 2024 at 07:09 AM
+-- Generation Time: Jan 27, 2024 at 02:21 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -58,7 +58,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_01_22_194232_product_table', 2);
+(5, '2024_01_22_194232_product_table', 1),
+(7, '2024_01_27_121306_add_column_to_user', 3);
 
 -- --------------------------------------------------------
 
@@ -71,13 +72,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('mosharofalahsan@gmail.com', '$2y$10$2Mr1/11TQzkX3ntiC7E8/u1wo4UO6HlClrW8UXAo9HuINMqLI51My', '2024-01-24 18:01:28');
 
 -- --------------------------------------------------------
 
@@ -119,19 +113,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `sku`, `quantity`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, '101', 10, 'Flower Soap', 'The lifebuoy is an antibacterial soap.', '2024-01-22 13:23:01', '2024-01-24 02:50:47'),
-(2, '201-A', 100, 'Hand Wash', 'International brand Lux is an antibacterial handwash. It\'s a product of uniliver company and is distributed all over the world.', '2024-01-22 13:27:42', '2024-01-22 13:29:24'),
-(4, '301-C', 300, 'Tooth Paste', 'This is Mr Whites. Antibacterial tooth paste.', '2024-01-22 16:36:18', '2024-01-22 16:36:18'),
-(5, '401-A', 3500, 'Salt', 'ACI salt is an antibacterial salt.', '2024-01-22 17:16:36', '2024-01-22 21:09:37'),
-(8, '1001-B', 40000, 'Flower Pen', 'Designed pen for kids.', '2024-01-23 06:46:42', '2024-01-23 06:57:37'),
-(9, '506-B', 4500, 'Mouse Pad', 'Logitech mouse pad is the best. Mostly professionals and gamers buy this.', '2024-01-24 04:49:19', '2024-01-24 04:49:19'),
-(10, '615-AA', 800200, 'Mobile Cover', 'Plastic minion mobile cover. This cover fits well for POCO phones.', '2024-01-24 07:09:17', '2024-01-24 07:09:17'),
-(15, '60A-01', 60120000, 'Bike Tyre', 'Perilli diabolo rosso are one of the best tires around the globe. It has thick layer of rubber & net.', '2024-01-24 07:40:24', '2024-01-24 09:15:42'),
-(17, '10EU-AAA', 16000000, 'Duracel Battery', 'This battery is good and cheaper than other international brands.', '2024-01-24 09:21:12', '2024-01-24 09:21:12'),
-(18, '19EU-87', 3901000, 'Typo Face Mask', 'Respirator masks, or “respirators,” like the N95 give the highest level of protection against the coronavirus, according to the CDC.', '2024-01-24 11:08:58', '2024-01-24 11:08:58'),
-(19, '1001-USA-A', 100000000, 'Vaccine', 'Vaccines are medications that are used to make people immune to certain diseases. They contain the bacteria or virus, or parts of the bacteria or virus that cause illness and disease. The bacteria or virus is included in the vaccine so that the immune.', '2024-01-24 11:18:24', '2024-01-24 11:18:24'),
-(20, '100ZSW40', 150, 'Nutty', 'Nutty is a biscuit combined with flour and nut.', '2024-01-24 17:14:05', '2024-01-24 20:44:39'),
-(21, '22001EUU', 10000, 'Socks', 'Bata socks are good.', '2024-01-24 20:47:33', '2024-01-24 20:47:33');
+(2, '301USA-C', 300000, 'Tooth Paste', 'This is Mr Whites. Antibacterial tooth paste.', '2024-01-25 17:04:25', '2024-01-25 17:06:36'),
+(3, '101USA-A', 240000, 'Socks', 'This is Bata socks. Its worlds first antibacterial sock.', '2024-01-25 17:05:31', '2024-01-25 17:05:31'),
+(5, 'USA994-A1', 210000, 'Vaccine', 'This is Johnsons&John. Its worlds third COVID19 vaccine.', '2024-01-25 17:08:54', '2024-01-25 17:08:54'),
+(7, '1001-USA-A', 1000000, 'Typo Face Mask', 'This is a good mask.', '2024-01-25 17:25:02', '2024-01-25 17:25:02'),
+(8, 'USA2023A1', 1000, 'Logitec Mouse', 'Best mouse in the world now.', '2024-01-25 17:25:58', '2024-01-25 17:27:24'),
+(9, 'R15-2024', 10, 'Yamaha', 'This is an indonesian bike from Yamaha.', '2024-01-25 17:29:38', '2024-01-25 17:29:38'),
+(10, 'R25-2021', 5, 'Yamaha', 'This is a 250cc bike from Japan Yamaha company.', '2024-01-27 04:20:05', '2024-01-27 04:20:05'),
+(12, '2024FIFA', 100, 'Football Game', 'Fifa 2024 is a EA game. This is the best seller game.', '2024-01-27 04:51:24', '2024-01-27 04:51:24'),
+(13, '2021FIFA', 5, 'Football Game', 'This is an old version of the FIFA. This is still in demand.', '2024-01-27 05:05:11', '2024-01-27 05:05:11');
 
 -- --------------------------------------------------------
 
@@ -147,17 +137,24 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'mosharof', 'mosharof@gmail.com', NULL, '$2y$10$PhzTqsw.RMM60FCCpP9mr.UAUWVUTVGsK.MNv2lE8lxppD.Hd16UG', 'uyBcj6fx59q1RbKVY5fuhLnzv10qvN22iIqoa3RvMfDynGnOFXgI3o83hqpc', '2024-01-22 18:33:03', '2024-01-22 18:46:21'),
-(2, 'Ali', 'ali@gmail.com', NULL, '$2y$10$e0lJFFGaL0fAsHgkf8cEJ.M5Ld4fA98v82PAIuBWJNblcJiEaXtO6', 'oklxnZ0ucKVjSsz3T8uy8G8xdJ4X864VrIaCLMbJl64UhjHEMZizOLVHYmJv', '2024-01-23 05:57:56', '2024-01-23 06:00:56'),
-(3, 'Maksudul', 'maksud123@gmail.com', NULL, '$2y$10$2m6/hofa002jIrB9Qgv1ZuvKzrj3LIEuEGQxPtp6BMujlHZhKi8Ly', 'pernDm9ojs49zuO5O18FWcWsOPxZh5LxRN2Sxf3Qi2ZoOPQacO6EWaUMBxJq', '2024-01-24 17:04:18', '2024-01-24 17:22:17');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `is_admin`) VALUES
+(20, 'mosharof', 'mosharof@gmail.com', NULL, '$2y$10$A6OtuacFVdOtNBeasBaZwuh/jLaAVDAWwzIAfW13JPFIaR6i5YbOK', '3KcByySb5MSQRTMbE5UUpwPtfRJ9MuTqMuj6tC6sxcIO5uu1wCeJ1tRTkMML', '2024-01-25 17:09:55', '2024-01-25 17:09:55', 1),
+(21, 'Ali', 'ali@gmail.com', NULL, '$2y$10$onKf/N/gRj.AYOliV0y2LeFLZrVK5MYDQME6hpJhZ7kPEj6db8Gbi', 'qkXyJtosiqYaxNTxClXki2UDCv0l9QhNTV6EGJwtdELM4515zEkFPbd40cFZ', '2024-01-25 17:21:59', '2024-01-25 17:21:59', 0),
+(22, 'maksud', 'maksud@gmail.com', NULL, '$2y$10$Qy10m2RjA3RrjPY8aWVNv.GYRpCkJnuLVXTM6DxMFRtcnamZGAkxW', '7ms4LrMImpxNJCJmFNt6CFBQjtVJkIDOJKUNcUnnU9MZspBOAx8fNEKb6GrR', '2024-01-27 05:06:05', '2024-01-27 05:06:05', 1),
+(23, 'hasim', 'hasim@gmail.com', NULL, '$2y$10$N9IOGd.wny3lsU4Gw8dZ2eFMFB7xEGS2VYaTT9TpYRXSo3DrxEA.G', NULL, '2024-01-27 05:06:28', '2024-01-27 05:06:28', 0),
+(24, 'zarifa', 'zarifa@gmail.com', NULL, '$2y$10$wDZcr3CbJwAaHvD/sl0P4OAARGJ7nyX12Rx1JLwR.xm2B0M/i0TC6', NULL, '2024-01-27 05:06:51', '2024-01-27 05:06:51', 0),
+(25, 'anika', 'anika@gmail.com', NULL, '$2y$10$45TP5MPHHkDDw/YBsXGtzuTUgk2YyJRFtcnZQK75X0SEwH5XxyoT2', NULL, '2024-01-27 05:07:12', '2024-01-27 05:07:12', 0),
+(26, 'kamal', 'kamal@gmail.com', NULL, '$2y$10$04yx3LAxsxOHDsyK4zQEZedel7jsotPRPCxh18Ez5/zthX7PdkcM6', '2K9oIROLr4Sx7MHPqIBXjNkgwvZ7LnahUMWQ1yTYS73hw83vwAmDeLRtUcea', '2024-01-27 05:07:33', '2024-01-27 05:07:33', 0),
+(27, 'Ahsan', 'ahsan@gmail.com', NULL, '$2y$10$MfIYOjNVFLX53tA6/lZ5m.B7hxcnk8KtEIOOLpoGqMdizxuT29Ecu', NULL, '2024-01-27 05:07:52', '2024-01-27 05:07:52', 1),
+(28, 'Al Ahsan', 'alahsan@gmail.com', NULL, '$2y$10$0k9bHGzRhp9gR8EAdEiAW.14Ltg4v22fwxFhv296m5zpZ67R5MGke', NULL, '2024-01-27 05:08:19', '2024-01-27 05:08:19', 0);
 
 --
 -- Indexes for dumped tables
@@ -217,7 +214,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -229,13 +226,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
