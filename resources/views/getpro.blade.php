@@ -21,6 +21,9 @@
     <nav>
       <ul>
 
+
+      
+
         <li>
           <button>
           <a href="/createpro">
@@ -28,6 +31,14 @@
             </a>
           </button>
         </li>
+
+        
+
+
+     
+      @auth
+       @if(auth()->user()->is_admin)
+
 
         <li>
           <button>
@@ -37,6 +48,8 @@
           </button>
         </li>
 
+     
+
         <li>
           <button>
           <a href="/deletepro">
@@ -44,6 +57,9 @@
             </a>
           </button>
         </li>
+
+      @endif
+      @endauth
   
         <li>
           <button>

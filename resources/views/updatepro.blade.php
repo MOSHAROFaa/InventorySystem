@@ -14,6 +14,17 @@
 
 </head>
 
+@auth
+@if(!auth()->user()->is_admin)
+<script>
+    window.location = "/dashboard";
+</script>
+@endif
+@endauth
+
+@auth
+@if(auth()->user()->is_admin)
+
 <body id="blacklay">
 
     <div class="container">
@@ -60,6 +71,7 @@
     </div>
 
 
+
     <script>
         function toggleInput(inputId) {
             const checkbox = document.getElementById(inputId + 'Checkbox');
@@ -68,17 +80,6 @@
             inputField.disabled = !checkbox.checked;
         }
 
-        //     // For Quantity
-        //     function isNumeric(value) {
-        //     // Check if the value is a valid integer
-        //     return /^\d+$/.test(value);
-        // }
-
-        // // For sku, title and description
-        // function isAlphaNumeric(value) {
-        //     // Check if the value contains only alphanumeric characters and spaces
-        //     return /^[a-zA-Z0-9\s]+$/.test(value);
-        // }
 
 
         async function updateProduct() {
@@ -149,6 +150,10 @@
             }
         }
     </script>
+
+
+    @endif
+    @endauth
 
 
 </body>

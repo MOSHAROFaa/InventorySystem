@@ -88,3 +88,10 @@ Here is the system shown to you,
 
 
 ![13](https://github.com/MOSHAROFaa/InventorySystem/assets/84110930/b9a6040d-17af-4fc5-b7d1-aa2f1ebd78ad)
+
+
+
+Only admin can update and delete the product. Set is_admin to 1 in DB.
+Other registered users will be automatically normal user who can view and create the products. 
+
+If other than admin finds out even the url to delete or update product he/she will be redirected to the dashboard page.

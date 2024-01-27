@@ -20,7 +20,7 @@
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <link rel="stylesheet" href="dashboard.css">
-                        
+
                     </head>
 
                     <body>
@@ -31,42 +31,55 @@
                             <nav>
                                 <ul>
                                     <li id="logged">
-                                    {{ __("Start Here!") }}
+                                        {{ __("Start Here!") }}
                                     </li>
 
                                     <li>
                                         <button>
-                                        <a href="/getpro">
-                                        View Inventory
-                                        </a>    
+                                            <a href="/getpro">
+                                                View Inventory
+                                            </a>
                                         </button>
                                     </li>
+
+
 
                                     <li>
                                         <button>
-                                        <a href="/createpro">
-                                        Create Product
-                                        </a>    
+                                            <a href="/createpro">
+                                                Create Product
+                                            </a>
                                         </button>
                                     </li>
+
+
+
+                                    @auth
+                                    @if(auth()->user()->is_admin)
+
 
                                     <li>
                                         <button>
-                                        <a href="/updatepro">
-                                        Update Product
-                                        </a>    
+                                            <a href="/updatepro">
+                                                Update Product
+                                            </a>
                                         </button>
                                     </li>
+
+
 
                                     <li>
                                         <button>
-                                        <a href="/deletepro">
-                                        Delete Product
-                                        </a>    
+                                            <a href="/deletepro">
+                                                Delete Product
+                                            </a>
                                         </button>
                                     </li>
 
-                                   
+                                    @endif
+                                    @endauth
+
+
                                 </ul>
                             </nav>
                             <hr>

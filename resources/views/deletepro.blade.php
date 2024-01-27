@@ -11,27 +11,44 @@
 
 </head>
 
+@auth
+@if(!auth()->user()->is_admin)
+<script>window.location = "/dashboard";</script>
+@endif
+@endauth
+
+
+@auth
+@if(auth()->user()->is_admin)
+
+
 <body id="blacklay">
 
 
   <div class="container">
-<h2 id="headingfir">Delete Product</h2>
-<div class="mb-3">
-<div id="card">
-<p class="text-danger">* Required numeric fields</p>
-    <label for="productId">Product ID*:</label>
-    <input type="number" id="productId" placeholder="Enter Product ID" class="form-control" required>
+    <h2 id="headingfir">Delete Product</h2>
+    <div class="mb-3">
+      <div id="card">
+        <p class="text-danger">* Required numeric fields</p>
+        <label for="productId">Product ID*:</label>
+        <input type="number" id="productId" placeholder="Enter Product ID" class="form-control" required>
 
-    <br>
-    <button onclick="deleteProduct()" class="btn btn-danger">Delete Product</button>
-    <a href="/getpro" class="btn btn-secondary">Cancel</a>
-  </div>
-  </div>
+        <br>
+        <button onclick="deleteProduct()" class="btn btn-danger">Delete Product</button>
+        <a href="/getpro" class="btn btn-secondary">Cancel</a>
+      </div>
+    </div>
   </div>
 
+
+  
 
   <script>
+
+  
+
     async function deleteProduct() {
+
       const productId = document.getElementById('productId').value;
 
       if (!productId) {
@@ -60,11 +77,11 @@
           if (contentType && contentType.includes('application/json')) {
             const responseData = await response.json();
             alert('Product deleted successfully');
-            
+
           } else {
             const text = await response.text();
             alert('Product deleted successfully. Response: ' + text);
-            
+
           }
           window.location.href = '/getpro';
         } else {
@@ -77,6 +94,9 @@
       }
     }
   </script>
+
+@endif
+  @endauth
 
 </body>
 

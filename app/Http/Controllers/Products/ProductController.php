@@ -95,72 +95,95 @@ class ProductController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $product = Product::find($id);
-
-        if (!$product) {
+        // Only the admin can update the products
+        if(!auth()->user()->is_admin){
             return response()->json([
-                'status' => 404,
-                'message' => "No product with ID $id found"
-            ], 404);
+                'status'=>403,
+                'message'=>'You are not authorized to perform this action'
+            ], 403);
         }
+        else{
+            $product = Product::find($id);
 
-        // Get the data
-        $requestData = $request->only([
-            'sku', 
-            'quantity', 
-            'title', 
-            'description'
-        ]);
-
-        // Define Validation rules based on the provided fields
-        $validationRules =[];
-        foreach ($requestData as $field => $value) {
-            $validationRules[$field] = "required|max:200";
-        }
-
-        $validator = Validator::make($requestData, $validationRules);
-
-        if($validator->fails()){
+            if (!$product) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => "No product with ID $id found"
+                ], 404);
+            }
+    
+            // Get the data
+            $requestData = $request->only([
+                'sku', 
+                'quantity', 
+                'title', 
+                'description'
+            ]);
+    
+            // Define Validation rules based on the provided fields
+            $validationRules =[];
+            foreach ($requestData as $field => $value) {
+                $validationRules[$field] = "required|max:200";
+            }
+    
+            $validator = Validator::make($requestData, $validationRules);
+    
+            if($validator->fails()){
+                return response()->json([
+                    'status'=>422,
+                    'message'=>$validator->messages()
+                ], 422);
+            }
+    
+            foreach ($requestData as $field => $value) {
+                $product->$field = $value;
+            }
+    
+            $product->save();
+    
             return response()->json([
-                'status'=>422,
-                'message'=>$validator->messages()
-            ], 422);
+                'status'=>200,
+                'message'=>'Product updated successfully',
+                'Product'=> $product
+            ], 200);
         }
-
-        foreach ($requestData as $field => $value) {
-            $product->$field = $value;
-        }
-
-        $product->save();
-
-        return response()->json([
-            'status'=>200,
-            'message'=>'Product updated successfully',
-            'Product'=> $product
-        ], 200);
+        
     }
 
     // Delete a specific product
 
     public function destroy($id){
-        $product = Product::find($id);
-    
-        if ($product) {
-            $sku = $product->sku;
-            $title = $product->title;
-    
-            $product->delete();
-    
+
+        // Only the admin can delete the products
+        if(!auth()->user()->is_admin){
             return response()->json([
-                'status' => 200,
-                'message' => "Product SKU:$sku & Title: $title is deleted successfully"
-            ], 200);
-        } else {
-            return response()->json([
-                'status' => 404,
-                'message' => "Product with ID $id not found"
-            ], 404);
+                'status'=>403,
+                'message'=>'You are not authorized to perform this action'
+            ], 403);
         }
+        else{
+            $product = Product::find($id);
+    
+            if ($product) {
+                $sku = $product->sku;
+                $title = $product->title;
+        
+                $product->delete();
+        
+                return response()->json([
+                    'status' => 200,
+                    'message' => "Product SKU:$sku & Title: $title is deleted successfully"
+                ], 200);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => "Product with ID $id not found"
+                ], 404);
+            }
+        }
+
+
+        
     }
 
 
