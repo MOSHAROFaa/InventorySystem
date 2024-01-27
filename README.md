@@ -15,6 +15,8 @@ Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
 
 1. Please start your local host. You can choose XAMPP. Start the Apache and MySQL. (Important: Check the MySQL Port.)
+
+
 2. Go to the .env file then check and change the followings, 
 
     DB_CONNECTION=mysql
@@ -25,6 +27,8 @@ Route::delete('products/{id}', [ProductController::class, 'destroy']);
     DB_PASSWORD=
 
     (Check if your DB_USERNAME & DB_PASSWORD are correct.)
+
+
 
 3. Then in the terminal run these commands,
 
@@ -39,14 +43,19 @@ Route::delete('products/{id}', [ProductController::class, 'destroy']);
       php artisan route:clear
 
 
+
 4. Please import the DB it is located in the database folder.
+
 
 
 5. Here in this system there are 2 users. One is admin another is user. So the below rule follows,
 
 5.1 Only admin can update and delete the product. Set is_admin to 1 in DB.
+
 5.2 Other registered users will be automatically normal user who can view and create the products. 
+
 5.3 If other than admin finds out even the url to delete or update product he/she will be redirected to the dashboard page.
+
 
 
 6. Unit testing is done here all 34 cases successfully passed.
