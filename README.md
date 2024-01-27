@@ -40,7 +40,16 @@ Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
 
 4. Please import the DB it is located in the database folder.
-5. Unit testing is done here all 34 cases successfully passed.
+
+
+5. Here in this system there are 2 users. One is admin another is user. So the below rule follows,
+
+5.1 Only admin can update and delete the product. Set is_admin to 1 in DB.
+5.2 Other registered users will be automatically normal user who can view and create the products. 
+5.3 If other than admin finds out even the url to delete or update product he/she will be redirected to the dashboard page.
+
+
+6. Unit testing is done here all 34 cases successfully passed.
    
 ![1](https://github.com/MOSHAROFaa/InventorySystem/assets/84110930/a6411476-76e3-4d17-a3c3-6d3e617ddea9)
 
@@ -91,7 +100,3 @@ Here is the system shown to you,
 
 
 
-Only admin can update and delete the product. Set is_admin to 1 in DB.
-Other registered users will be automatically normal user who can view and create the products. 
-
-If other than admin finds out even the url to delete or update product he/she will be redirected to the dashboard page.
